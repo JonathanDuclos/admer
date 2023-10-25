@@ -6,7 +6,7 @@ const JournalBook = () => {
   return (
     <div>
       <p className='font-bold text-md title'> {journalBookPageContent.title} </p>
-      <div className='mt-4'>
+      <div className='mt-4 mx-2s'>
         <div>
           {
           journalBookPageContent.data.map(
