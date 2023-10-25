@@ -1,0 +1,4 @@
+# https://www.robotstxt.org/robotstxt.html
+# Be careful, I am watching.
+User-agent: *
+Disallow:
