@@ -1,19 +1,23 @@
 import React from 'react'
 import { journalBookPageContent } from '../data/dummy';
 import Entry from '../components/Entry';
-
-const addEntryHandle = () => {
-  console.log("Add..")
-}
+import { useStateContext } from '../components/context/Context';
 
 const JournalBook = () => {
+  const {dataEntries, setDataEntries} = useStateContext()
+  
+  function addEntryHandle(){
+    setDataEntries([...dataEntries, {key:dataEntries.length, code: "1", value: "1.00"}])
+    console.log(dataEntries.length)
+  }
+
   return (
     <div>
       <p className='mx-1 font-bold text-md title'> {journalBookPageContent.title} </p>
       <div className='mt-4 mx-2s'>
         <div>
           {
-            journalBookPageContent.data.map( i => <Entry entry={i} key={i.key}/> )
+            dataEntries.map( i => <Entry entry={i} key={i.key}/> )
           }
           <div className="flex justify-end m-2 w-auto">
             <button className="flex rounded-md border border-slate-200 p-2 shadow-lg" onClick={addEntryHandle}>

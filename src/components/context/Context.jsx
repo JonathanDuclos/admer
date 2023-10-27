@@ -9,9 +9,10 @@ var initialState = {
 
 export const ContextProvider = ({ children }) => {
     const [openedMenu, setOpenedMenu] = useState(initialState.openedMenu)
+    const [dataEntries, setDataEntries] = useState([])
 
     return (
-        <StateContext.Provider value={{openedMenu, setOpenedMenu}}>
+        <StateContext.Provider value={{openedMenu, setOpenedMenu, dataEntries, setDataEntries}}>
             {children}
         </StateContext.Provider>
     );
