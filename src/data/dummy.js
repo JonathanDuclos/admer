@@ -4,7 +4,7 @@ import { FaBalanceScale } from 'react-icons/fa';
 import { SiEnterprisedb } from 'react-icons/si';
 import { BsFiletypeDoc } from 'react-icons/bs';
 import { AiOutlineTable } from 'react-icons/ai';
-
+import { useStateContext } from '../components/context/Context';
 
 export const menuData = [
     {key:1, title: "Livro Diario", icon: <BsBook/>, link: "journalbook"},
