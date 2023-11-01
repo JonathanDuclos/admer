@@ -63,7 +63,7 @@ const Entry = ({entry}) => {
             <div className="mx-1 w-auto flex items-center justify-end">
                 <div className="flex gap-1 justify-end">
                     <span className="flex font-thin text-slate-400 items-center text-xs">R$</span>
-                    <input type='text' className="w-20 flex justify-end text-sm" value={entry.value}/>
+                    <input type='text' className="w-20 flex justify-end text-sm" defaultValue={entry.value} onChange={(event) => console.log(event)}/>
                 </div>
             </div>
         </div>
