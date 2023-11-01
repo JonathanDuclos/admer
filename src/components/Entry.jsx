@@ -24,8 +24,12 @@ const Entry = ({entry}) => {
         setSelectedAccount(event.target.value)
     }
 
+    function handleEntryChange(key, data){
+        entry[key] = data
+        console.log(entry)
+    }
+
     function handleEntryDelete(key){
-        console.log("Removed: ", key)
         setDataEntries(dataEntries.filter(entry => entry.key !== key))
     }
 
@@ -39,7 +43,7 @@ const Entry = ({entry}) => {
             <div className="flex items-center">
                 <div className="flex items-center">
                     <span className="flex font-thin text-slate-400 items-center text-xs">Código</span>
-                    <select name='accountCode' id='accountCode' className="w-full text-sm font-medium text-gray-500" onChange={(event) => handleAccountCodeChange(event)}>
+                    <select name='accountCode' id='accountCode' className="w-full text-sm font-medium text-gray-500" onChange={(event) => {handleAccountCodeChange(event); handleEntryChange("code",event.target.value)}}>
                         {
                             getAllAccountCodes().map(account => <option key={account.key} value={account.code}>
                                 {account.code}
@@ -63,7 +67,7 @@ const Entry = ({entry}) => {
             <div className="mx-1 w-auto flex items-center justify-end">
                 <div className="flex gap-1 justify-end">
                     <span className="flex font-thin text-slate-400 items-center text-xs">R$</span>
-                    <input type='text' className="w-20 flex justify-end text-sm" defaultValue={entry.value} onChange={(event) => console.log(event)}/>
+                    <input type='text' className="w-20 flex justify-end text-sm" defaultValue={entry.value} onChange={(event) => handleEntryChange("value",event.target.value)}/>
                 </div>
             </div>
         </div>
